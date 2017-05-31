@@ -5,7 +5,6 @@ using namespace aie;
 
 StateMachine::StateMachine()
 {
-	m_nCurrentState = -1;
 }
 
 StateMachine::~StateMachine()
@@ -41,10 +40,10 @@ void StateMachine::SetState(int nStateIndex)
 		return;
 
 	if (m_nCurrentState >= 0)
-		m_StateList[m_nCurrentState]->onExit;
+		m_StateList[m_nCurrentState]->onExit();
 
 	m_nCurrentState = nStateIndex;
-	m_StateList[m_nCurrentState]->onEnter;
+	m_StateList[m_nCurrentState]->onEnter();
 }
 
 void StateMachine::AddState(int nStateIndex, State* pState)

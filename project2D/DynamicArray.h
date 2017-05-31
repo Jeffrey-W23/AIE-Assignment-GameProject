@@ -155,5 +155,5 @@ private:
 	T* m_pData;
 	int m_nCapacity;
 	int m_nUsed;
-	T m_NullValue
+	T m_NullValue;
 };

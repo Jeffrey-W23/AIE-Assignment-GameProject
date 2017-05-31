@@ -2,6 +2,7 @@
 #include "Renderer2D.h"
 #include "DynamicArray.h" 
 #include "State.h"
+#include "Stack.h"
 using namespace aie;
 
 class StateMachine
@@ -17,5 +18,5 @@ public:
 
 private:
 	DynamicArray<State*> m_StateList;
-	int m_nCurrentState;
+	Stack<State*> m_CurrentStack;
 };

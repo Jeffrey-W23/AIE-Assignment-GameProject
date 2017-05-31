@@ -7,9 +7,9 @@ public:
 	GameState();
 	~GameState();
 
-	virtual void onEnter();
-	virtual void onUpdate();
-	virtual void onDraw();
-	virtual void onExit();
+	void onEnter();
+	void onUpdate(float deltaTime);
+	void onDraw(Renderer2D* m_2dRenderer);
+	void onExit();
 };
 
