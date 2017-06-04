@@ -17,6 +17,5 @@ public:
 	void AddState(int nStateIndex, State* pState);
 
 private:
-	DynamicArray<State*> m_StateList;
 	Stack<State*> m_CurrentStack;
 };
