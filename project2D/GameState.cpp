@@ -14,7 +14,7 @@ GameState::~GameState()
 void GameState::onEnter()
 {}
 
-void GameState::onUpdate(float deltaTime)
+void GameState::onUpdate(float deltaTime, StateMachine* pMachine)
 {}
 
 void GameState::onDraw(Renderer2D* m_2dRenderer)

@@ -3,6 +3,7 @@
 #include "Application.h"
 #include "Renderer2D.h"
 #include "Audio.h"
+#include "StateMachine.h"
 
 class Application2D : public aie::Application {
 public:
@@ -25,4 +26,6 @@ protected:
 
 	float m_cameraX, m_cameraY;
 	float m_timer;
+
+	StateMachine* m_StateMachine;
 };

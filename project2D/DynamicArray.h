@@ -51,7 +51,7 @@ public:
 
 	void Insert(int index, T value)
 	{
-		if (m_nUsed > m_nCapacity)
+		if (m_nUsed >= m_nCapacity)
 			Resize();
 
 		//memcpy(m_pData + index + 1, m_pData + index, sizeof(T) * (m_nUsed - index));
@@ -114,8 +114,6 @@ public:
 
 	T& operator[](const int index)
 	{
-
-
 		return m_pData[index];
 	}
 

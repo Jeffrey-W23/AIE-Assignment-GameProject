@@ -9,9 +9,12 @@ StateMachine::StateMachine()
 
 StateMachine::~StateMachine()
 {
-	for (int i = 0; i < m_CurrentStack.Size(); ++i)
+	while (m_CurrentStack.Size() > 0)
+		PopState();
+
+	for (int i = 0; i < m_StateList.Size(); ++i)
 	{
-		//delete m_CurrentStack[i]; // ASL TEACHER ABOUT DELETING
+		delete m_StateList[i];
 	}
 }
 
@@ -20,7 +23,7 @@ void StateMachine::Update(float deltaTime)
 	if (m_CurrentStack.Size() <= 0)
 		return;
 
-	m_CurrentStack.Top->onUpdate(deltaTime);
+	m_CurrentStack.Top()->onUpdate(deltaTime, this);
 }
 
 
@@ -29,24 +32,35 @@ void StateMachine::Draw(Renderer2D* m_2dRenderer)
 	if (m_CurrentStack.Size() <= 0)
 		return;
 
-	m_CurrentStack.Top->onDraw(m_2dRenderer);
+	m_CurrentStack.Top()->onDraw(m_2dRenderer);
 }
 
-void StateMachine::SetState(int nStateIndex)
+void StateMachine::PushState(int nStateIndex)
 {
 	// Example of Assert
 	/*_ASSERT(nStateIndex < m_StateList.Size());
 	if (nStateIndex >= m_StateList.Size())
 		return;*/
 
-	if (m_CurrentStack.Size() >= 0)
-		m_CurrentStack.Top->onExit();
+	if (m_CurrentStack.Size() > 0)
+		m_CurrentStack.Top()->onExit();
 
-	m_CurrentStack.Push(nStateIndex);
-	m_CurrentStack.Top->onEnter();
+	m_CurrentStack.Push(m_StateList[nStateIndex]);
+	m_CurrentStack.Top()->onEnter();
+}
+
+void StateMachine::PopState()
+{
+	if (m_CurrentStack.Size() > 0)
+		m_CurrentStack.Top()->onExit();
+
+	m_CurrentStack.Pop();
+
+	if (m_CurrentStack.Size() > 0)
+		m_CurrentStack.Top()->onEnter();
 }
 
 void StateMachine::AddState(int nStateIndex, State* pState)
 {
-	m_CurrentStack.Push(nStateIndex, pState);
+	m_StateList.Insert(nStateIndex, pState);
 }

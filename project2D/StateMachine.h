@@ -13,9 +13,11 @@ public:
 
 	void Update(float deltaTime);
 	void Draw(Renderer2D* m_2dRenderer);
-	void SetState(int nStateIndex);
+	void PushState(int nStateIndex);
 	void AddState(int nStateIndex, State* pState);
+	void PopState();
 
 private:
+	DynamicArray<State*> m_StateList;
 	Stack<State*> m_CurrentStack;
 };

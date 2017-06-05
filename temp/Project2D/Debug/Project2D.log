@@ -1,19 +1,2 @@
-﻿  StateMachine.cpp
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(24): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(24): error C2227: left of '->onUpdate' must point to class/struct/union/generic type
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(33): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(33): error C2227: left of '->onDraw' must point to class/struct/union/generic type
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(42): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(43): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(43): error C2227: left of '->onExit' must point to class/struct/union/generic type
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(45): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(46): error C2065: 'm_nCurrentState': undeclared identifier
-c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\statemachine.cpp(46): error C2227: left of '->onEnter' must point to class/struct/union/generic type
-  State.cpp
-  ObjectPool.cpp
-  MenuState.cpp
-  main.cpp
-  GameState.cpp
-  Entity.cpp
-  Application2D.cpp
-  Generating Code...
+﻿  SplashScreen.cpp
+  Project2D.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.exe
