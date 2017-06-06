@@ -3,7 +3,8 @@
 #include "Font.h"
 #include "Input.h"
 #include "MenuState.h"
-#include "GameState.h" 
+#include "GameState.h"
+#include "StartState.h"
 #include "SplashScreen.h"
 
 using namespace aie;
@@ -27,8 +28,9 @@ bool Application2D::startup()
 	m_StateMachine = new StateMachine();
 
 	m_StateMachine->AddState(0, new SplashScreen());
-	m_StateMachine->AddState(1, new MenuState());
-	m_StateMachine->AddState(2, new GameState());
+	m_StateMachine->AddState(1, new StartState());
+	m_StateMachine->AddState(2, new MenuState());
+	m_StateMachine->AddState(3, new GameState());
 	m_StateMachine->PushState(0);
 
 	m_cameraX = 0;

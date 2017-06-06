@@ -61,7 +61,7 @@ Renderer2D::Renderer2D() {
 									rgba = rgba.rrrr; \
 								fragColour = rgba * vColour; \
 							} else fragColour = vColour; \
-						if (fragColour.a < 0.01f) discard; }"; // PLAY AROUND WITH THIS!
+						if (fragColour.a < 0.01f) discard; }";
 	
 	unsigned int vs = glCreateShader(GL_VERTEX_SHADER);
 	unsigned int fs = glCreateShader(GL_FRAGMENT_SHADER);

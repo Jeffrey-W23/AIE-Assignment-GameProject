@@ -1,6 +1,7 @@
 #pragma once
 #include "State.h"
 #include "Texture.h"
+#include "Audio.h"
 using namespace aie;
 
 class SplashScreen : public State
@@ -20,5 +21,6 @@ private:
 
 	Texture* m_logo;
 	Texture* m_background;
+	Audio* m_audio;
 };
 
