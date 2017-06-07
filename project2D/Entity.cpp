@@ -18,3 +18,13 @@ bool Entity::GetActive()
 {
 	return m_bActive;
 }
+
+void Entity::Update(float deltaTime)
+{
+
+}
+
+void Entity::Draw(Renderer2D* m_2dRenderer)
+{
+
+}

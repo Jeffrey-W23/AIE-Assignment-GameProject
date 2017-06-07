@@ -4,6 +4,7 @@
 #include "Renderer2D.h"
 #include "Audio.h"
 #include "StateMachine.h"
+#include "ResourceManager.h"
 
 class Application2D : public aie::Application {
 public:

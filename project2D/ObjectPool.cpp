@@ -40,3 +40,13 @@ void ObjectPool::Deallocate(Entity* object)
 {
 	object->SetActive(false);
 }
+
+void ObjectPool::Update(float deltaTime)
+{
+
+}
+
+void ObjectPool::Draw(Renderer2D* m_2dRenderer)
+{
+
+}

@@ -6,6 +6,7 @@
 #include "GameState.h"
 #include "StartState.h"
 #include "SplashScreen.h"
+#include "ResourceManager.h"
 
 using namespace aie;
 
@@ -24,6 +25,8 @@ bool Application2D::startup()
 	m_font = new Font("./font/consolas.ttf", 32);
 	m_audio = new Audio("./audio/powerup.wav");
 
+	ResourceManager<Texture>::Create();
+	ResourceManager<Audio>::Create();
 
 	m_StateMachine = new StateMachine();
 
@@ -37,6 +40,10 @@ bool Application2D::startup()
 	m_cameraY = 0;
 	m_timer = 0;
 
+	// do this when I want the bullet to shoot.
+	//Bullet* pBullet = objectPool->Allocate();
+	//pBullet->SetPos();
+
 	return true;
 }
 
@@ -47,6 +54,9 @@ void Application2D::shutdown()
 	delete m_shipTexture;
 	delete m_2dRenderer;
 	delete m_StateMachine;
+
+	ResourceManager<Texture>::Destroy();
+	ResourceManager<Audio>::Destroy();
 }
 
 void Application2D::update(float deltaTime) 

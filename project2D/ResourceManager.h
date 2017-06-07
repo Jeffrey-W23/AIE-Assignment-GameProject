@@ -10,8 +10,7 @@ public:
 
 	T* LoadResource(char* szFileName)
 	{
-		// Check if resource is already loaded
-		// if it is, return it.
+		// Check if resource is already loaded. if it is, return it.
 		for (int i = 0; i < m_ResourceList.Size(); ++i)
 		{
 			if (strcmp(m_ResourceList[i]->m_szFileName, szFileName) == 0)

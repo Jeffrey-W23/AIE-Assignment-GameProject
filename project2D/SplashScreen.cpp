@@ -1,13 +1,19 @@
 #include "SplashScreen.h"
 #include "StateMachine.h"
+#include "ResourceManager.h"
+#include "Texture.h"
+using namespace aie;
 
 SplashScreen::SplashScreen()
 {
+	ResourceManager<Texture>* pResourceManager = ResourceManager<Texture>::GetInstance();
 	m_logo = new Texture("./textures/teamlogo.png");
 	m_background = new Texture("./textures/bg-logo.png");
 	m_audio = new Audio("./audio/teamchime.ogg");
 	m_alpha = 0;
 	m_timer = 0;
+
+	m_logo = pResourceManager->LoadResource("./textures/teamlogo.png");
 }
 
 SplashScreen::~SplashScreen()
