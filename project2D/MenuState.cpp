@@ -9,7 +9,7 @@ MenuState::~MenuState()
 {
 }
 
-void MenuState::onEnter()
+void MenuState::onEnter(StateMachine* pMachine)
 {
 }
 
@@ -21,7 +21,7 @@ void MenuState::onDraw(Renderer2D* m_2dRenderer)
 {
 }
 
-void MenuState::onExit()
+void MenuState::onExit(StateMachine* pMachine)
 {
 
 }

@@ -16,8 +16,10 @@ public:
 	void PushState(int nStateIndex);
 	void AddState(int nStateIndex, State* pState);
 	void PopState();
+	void SetBackgroundUpdate(bool onoff);
 
 private:
 	DynamicArray<State*> m_StateList;
 	Stack<State*> m_CurrentStack;
+	bool backUpdate;
 };

@@ -7,9 +7,9 @@ public:
 	GameState();
 	~GameState();
 
-	void onEnter();
+	void onEnter(StateMachine* pMachine);
 	void onUpdate(float deltaTime, StateMachine* pMachine);
 	void onDraw(Renderer2D* m_2dRenderer);
-	void onExit();
+	void onExit(StateMachine* pMachine);
 };
 

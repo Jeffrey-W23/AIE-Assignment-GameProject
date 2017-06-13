@@ -6,14 +6,14 @@ using namespace aie;
 
 SplashScreen::SplashScreen()
 {
-	ResourceManager<Texture>* pResourceManager = ResourceManager<Texture>::GetInstance();
-	m_logo = new Texture("./textures/teamlogo.png");
-	m_background = new Texture("./textures/bg-logo.png");
-	m_audio = new Audio("./audio/teamchime.ogg");
+	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
+	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
+
+	m_logo = pTextureManager->LoadResource("./textures/teamlogo.png");
+	m_background = pTextureManager->LoadResource("./textures/bg-logo.png");
+	m_audio = pAudioManager->LoadResource("./audio/teamchime.ogg");
 	m_alpha = 0;
 	m_timer = 0;
-
-	m_logo = pResourceManager->LoadResource("./textures/teamlogo.png");
 }
 
 SplashScreen::~SplashScreen()
@@ -23,7 +23,7 @@ SplashScreen::~SplashScreen()
 	delete m_logo;
 }
 
-void SplashScreen::onEnter()
+void SplashScreen::onEnter(StateMachine* pMachine)
 {
 	m_audio->play();
 	m_alpha = 0;
@@ -48,7 +48,7 @@ void SplashScreen::onDraw(Renderer2D* m_2dRenderer)
 	m_2dRenderer->drawSprite(m_logo, 640, 360);
 }
 
-void SplashScreen::onExit()
+void SplashScreen::onExit(StateMachine* pMachine)
 {
-
+	m_timer = 0;
 }

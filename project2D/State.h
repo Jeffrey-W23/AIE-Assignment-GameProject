@@ -10,8 +10,8 @@ public:
 	State();
 	~State();
 
-	virtual void onEnter() = 0;
+	virtual void onEnter(StateMachine* pMachine) = 0;
 	virtual void onUpdate(float deltaTime, StateMachine* pMachine) = 0;
 	virtual void onDraw(Renderer2D* m_2dRenderer) = 0;
-	virtual void onExit() = 0;
+	virtual void onExit(StateMachine* pMachine) = 0;
 };

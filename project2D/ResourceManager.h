@@ -1,5 +1,5 @@
 #pragma once
-#include "DynamicArray.h"
+#include "AssociativeArray.h"
 #include "Resource.h"
 #include "string.h"
 
@@ -11,23 +11,20 @@ public:
 	T* LoadResource(char* szFileName)
 	{
 		// Check if resource is already loaded. if it is, return it.
-		for (int i = 0; i < m_ResourceList.Size(); ++i)
+		if (m_ResourceList.IsItem(szFileName))
 		{
-			if (strcmp(m_ResourceList[i]->m_szFileName, szFileName) == 0)
-			{
-				return m_ResourceList[i]->m_pData;
-			}
+			return m_ResourceList[szFileName]->m_pData;
 		}
 
 		// Resource is not loaded, so load it
 		Resource<T>* pResource = new Resource<T>(szFileName);
-		m_ResourceList.PushBack(pResource);
+		m_ResourceList.AddItem(szFileName, pResource);
 		return pResource->m_pData;
 	}
 
 	void UnloadAllResources()
 	{
-		for (int i = 0; i < m_ResourceList->Size(); ++i)
+		for (int i = 0; i < m_ResourceList.Size(); ++i)
 		{
 			delete m_ResourceList[i];
 		}
@@ -63,7 +60,7 @@ private:
 		UnloadAllResources();
 	}
 
-	DynamicArray<Resource<T>*> m_ResourceList;
+	AssociativeArray<Resource<T>*> m_ResourceList;
 	static ResourceManager<T>* m_pInstance;
 };
 

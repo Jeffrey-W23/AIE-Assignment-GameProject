@@ -93,7 +93,7 @@ public:
 		return Remove(0);
 	}
 
-	T Clear()
+	void Clear()
 	{
 		m_nUsed = 0;
 	}

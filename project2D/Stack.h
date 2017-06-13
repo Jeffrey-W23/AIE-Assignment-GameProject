@@ -39,5 +39,11 @@ public:
 		return m_pData[nTop];
 	}
 
+	T SecondLast()
+	{
+		int nSecondLast = m_pData.Size() - 2;
+		return m_pData[nSecondLast];
+	}
+
 	DynamicArray<T> m_pData;
 };
