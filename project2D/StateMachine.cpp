@@ -1,6 +1,7 @@
 #include "StateMachine.h"
 #include <crtdbg.h>
 #include "Renderer2D.h"
+#include <crtdbg.h>
 using namespace aie;
 
 StateMachine::StateMachine()
@@ -21,9 +22,11 @@ StateMachine::~StateMachine()
 
 void StateMachine::Update(float deltaTime)
 {
+	_ASSERT(m_CurrentStack.Size() > 0);
 	if (m_CurrentStack.Size() <= 0)
 		return;
 
+	//Update in background
 	/*if (backUpdate)
 		m_CurrentStack.SecondLast()->onUpdate(deltaTime, this);*/
 
@@ -33,6 +36,7 @@ void StateMachine::Update(float deltaTime)
 
 void StateMachine::Draw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_CurrentStack.Size() > 0);
 	if (m_CurrentStack.Size() <= 0)
 		return;
 
@@ -44,11 +48,6 @@ void StateMachine::Draw(Renderer2D* m_2dRenderer)
 
 void StateMachine::PushState(int nStateIndex)
 {
-	// Example of Assert
-	/*_ASSERT(nStateIndex < m_StateList.Size());
-	if (nStateIndex >= m_StateList.Size())
-		return;*/
-
 	if (m_CurrentStack.Size() > 0)
 		m_CurrentStack.Top()->onExit(this);
 

@@ -2,13 +2,14 @@
 #include "StateMachine.h"
 #include "Input.h"
 #include "ResourceManager.h"
+#include <crtdbg.h>
 
 StartState::StartState()
 {
 	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
-
+	_ASSERT(m_font);
 	m_font = new Font("./font/consolas.ttf", 32);
 }
 

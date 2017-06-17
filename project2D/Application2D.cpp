@@ -7,7 +7,7 @@
 #include "StartState.h"
 #include "SplashScreen.h"
 #include "ResourceManager.h"
-
+#include <crtdbg.h>
 using namespace aie;
 
 Application2D::Application2D() 
@@ -20,14 +20,22 @@ Application2D::~Application2D()
 
 bool Application2D::startup() 
 {
+	_ASSERT(m_2dRenderer);
 	m_2dRenderer = new Renderer2D();
+	
+	_ASSERT(m_shipTexture);
 	m_shipTexture = new Texture("./textures/ship.png");
+	
+	_ASSERT(m_font);
 	m_font = new Font("./font/consolas.ttf", 32);
+
+	_ASSERT(m_audio);
 	m_audio = new Audio("./audio/powerup.wav");
 
 	ResourceManager<Texture>::Create();
 	ResourceManager<Audio>::Create();
 
+	_ASSERT(m_StateMachine);
 	m_StateMachine = new StateMachine();
 
 	m_StateMachine->AddState(0, new SplashScreen());
