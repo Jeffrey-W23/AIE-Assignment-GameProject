@@ -2,6 +2,7 @@
 #include "StateMachine.h"
 #include "ResourceManager.h"
 #include "Texture.h"
+#include "Input.h"
 using namespace aie;
 
 SplashScreen::SplashScreen()
@@ -25,7 +26,7 @@ SplashScreen::~SplashScreen()
 
 void SplashScreen::onEnter(StateMachine* pMachine)
 {
-	m_audio->play();
+	//m_audio->play();
 	m_alpha = 0;
 	m_timer = 0;
 }
@@ -39,6 +40,12 @@ void SplashScreen::onUpdate(float deltaTime, StateMachine* pMachine)
 	{
 		pMachine->PushState(1);
 	}
+
+	// input example
+	Input* input = Input::getInstance();
+
+	if (input->isKeyDown(INPUT_KEY_ENTER) || input->isKeyDown(INPUT_KEY_ESCAPE) || input->isKeyDown(INPUT_KEY_SPACE))
+		pMachine->PushState(1);
 }
 
 void SplashScreen::onDraw(Renderer2D* m_2dRenderer)

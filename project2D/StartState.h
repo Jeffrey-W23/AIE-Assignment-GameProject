@@ -17,5 +17,12 @@ public:
 	void onExit(StateMachine* pMachine);
 
 private:
+	float m_timer;
+	float m_flashText;
+	float m_logoPos;
+	float m_alpha;
+
 	Font* m_font;
+	Texture* m_logo;
+	Texture* m_background;
 };
