@@ -5,8 +5,10 @@
 #include "MenuState.h"
 #include "GameState.h"
 #include "StartState.h"
+#include "LoadingState.h"
 #include "SplashScreen.h"
 #include "ResourceManager.h"
+#include "ShareManager.h"
 #include <crtdbg.h>
 using namespace aie;
 
@@ -34,6 +36,7 @@ bool Application2D::startup()
 
 	ResourceManager<Texture>::Create();
 	ResourceManager<Audio>::Create();
+	ShareManager::create();
 
 	_ASSERT(m_StateMachine);
 	m_StateMachine = new StateMachine();
@@ -41,7 +44,8 @@ bool Application2D::startup()
 	m_StateMachine->AddState(0, new SplashScreen());
 	m_StateMachine->AddState(1, new StartState());
 	m_StateMachine->AddState(2, new MenuState());
-	m_StateMachine->AddState(3, new GameState());
+	m_StateMachine->AddState(3, new LoadingState());
+	m_StateMachine->AddState(4, new GameState());
 	m_StateMachine->PushState(0);
 
 	m_cameraX = 0;
@@ -65,11 +69,19 @@ void Application2D::shutdown()
 
 	ResourceManager<Texture>::Destroy();
 	ResourceManager<Audio>::Destroy();
+	ShareManager::destroy();
 }
 
 void Application2D::update(float deltaTime) 
 {
 	m_StateMachine->Update(deltaTime);
+
+	ShareManager* shareManager = ShareManager::Instance();
+
+	if (shareManager->QuitCheck() == true)
+	{
+		quit();
+	}
 
 	/*m_timer += deltaTime;*/
 

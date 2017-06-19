@@ -1,7 +1,6 @@
 #include "StateMachine.h"
 #include <crtdbg.h>
 #include "Renderer2D.h"
-#include <crtdbg.h>
 using namespace aie;
 
 StateMachine::StateMachine()

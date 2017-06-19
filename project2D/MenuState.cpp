@@ -2,6 +2,7 @@
 #include "StateMachine.h"
 #include "Input.h"
 #include "ResourceManager.h"
+#include "ShareManager.h"
 #include <crtdbg.h>
 
 MenuState::MenuState()
@@ -9,7 +10,7 @@ MenuState::MenuState()
 	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
-	m_logo = pTextureManager->LoadResource("./textures/menutext.png");
+	m_logo = pTextureManager->LoadResource("./textures/menutext3.png");
 	m_background = pTextureManager->LoadResource("./textures/bg.png");
 
 	_ASSERT(m_font);
@@ -42,8 +43,8 @@ void MenuState::onUpdate(float deltaTime, StateMachine* pMachine)
 	if (m_logoPos > 1000)
 		m_logoPos = 1000;
 
-	// input example
 	Input* input = Input::getInstance();
+	ShareManager* shareManager = ShareManager::Instance();
 
 	if (input->wasKeyPressed(INPUT_KEY_ESCAPE))
 		pMachine->PopState();
@@ -58,8 +59,8 @@ void MenuState::onUpdate(float deltaTime, StateMachine* pMachine)
 		pMachine->PushState(3);
 
 	// Hopw do I get this working
-	//if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 380 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 380)
-		//quit();
+	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 380 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 380)
+		shareManager->Quit(true);
 }
 
 void MenuState::onDraw(Renderer2D* m_2dRenderer)
@@ -69,11 +70,11 @@ void MenuState::onDraw(Renderer2D* m_2dRenderer)
 	m_2dRenderer->setRenderColour(1, 1, 1, m_alpha); // Color wont change?
 	m_2dRenderer->drawSprite(m_logo, 640, m_logoPos);
 
-	m_2dRenderer->setRenderColour(1, 1, 0, 1);
+	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, 1);
 	m_2dRenderer->drawText(m_font, "START", 574, 425);
 	m_2dRenderer->drawText(m_font, "EXIT", 588, 365);
 
-	m_2dRenderer->setRenderColour(1, 0, 0, 1);
+	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, 1);
 	m_2dRenderer->drawBox(530, m_selectorPos, 28, 28);
 }
 

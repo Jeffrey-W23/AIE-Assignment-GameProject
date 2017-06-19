@@ -9,7 +9,7 @@ StartState::StartState()
 	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
-	m_logo = pTextureManager->LoadResource("./textures/menutext.png");
+	m_logo = pTextureManager->LoadResource("./textures/menutext3.png");
 	m_background = pTextureManager->LoadResource("./textures/bg.png");
 
 	_ASSERT(m_font);
@@ -30,7 +30,7 @@ StartState::~StartState()
 
 void StartState::onEnter(StateMachine* pMachine)
 {
-	m_timer = 0;
+	m_timer = 3;
 	m_flashText = 1;
 	m_alpha = 0;
 }
@@ -43,7 +43,7 @@ void StartState::onUpdate(float deltaTime, StateMachine* pMachine)
 	// input example
 	Input* input = Input::getInstance();
 
-	if (input->wasKeyPressed(INPUT_KEY_ENTER))
+	if (input->wasKeyPressed(INPUT_KEY_ENTER) || input->wasKeyPressed(INPUT_KEY_SPACE))
 		pMachine->PushState(2);
 
 	m_timer += deltaTime;
@@ -68,12 +68,13 @@ void StartState::onDraw(Renderer2D* m_2dRenderer)
 	m_2dRenderer->setRenderColour(1, 1, 1, m_alpha); // Color wont change?
 	m_2dRenderer->drawSprite(m_logo, 640, m_logoPos);
 
-	m_2dRenderer->setRenderColour(1, 1, 0, m_flashText); // Color wont change?
+	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, m_flashText); // Color wont change?
 	m_2dRenderer->drawText(m_font, "PUSH START BUTTON", 404, 245);
 
-	m_2dRenderer->setRenderColour(160, 47, 0, 1); // Color wont change?
-	m_2dRenderer->drawText(m_font, "© 2015 PIQUANT INTERACTIVE", 280, 185);
+	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, 1); // Color wont change?
+	m_2dRenderer->drawText(m_font, "(C) 2017 PIQUANT INTERACTIVE", 244, 185);
 }
+
 
 void StartState::onExit(StateMachine* pMachine)
 {

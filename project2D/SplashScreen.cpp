@@ -26,7 +26,7 @@ SplashScreen::~SplashScreen()
 
 void SplashScreen::onEnter(StateMachine* pMachine)
 {
-	//m_audio->play();
+	m_audio->play();
 	m_alpha = 0;
 	m_timer = 0;
 }

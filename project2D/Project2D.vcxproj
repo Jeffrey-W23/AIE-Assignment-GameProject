@@ -92,9 +92,11 @@
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
+    <ClCompile Include="ShareManager.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="StartState.cpp" />
     <ClCompile Include="State.cpp" />
@@ -110,10 +112,12 @@
     <ClInclude Include="GraphNode.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="LoadingState.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="ShareManager.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="Stack.h" />
     <ClInclude Include="StartState.h" />
