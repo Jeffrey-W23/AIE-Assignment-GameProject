@@ -25,5 +25,6 @@ public:
 	bool QuitCheck();
 	int PlayAudio(char* song);
 	int StopAudio(char* song);
+	int SetAudioLoop(char* song, bool loop);
 };
 

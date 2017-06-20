@@ -7,8 +7,9 @@ ShareManager::ShareManager()
 {
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
-	m_audio["Menu"] = pAudioManager->LoadResource("./audio/menu.ogg");
-	m_audio["Menu2"] = pAudioManager->LoadResource("./audio/menu.ogg");
+	m_audio["menu"] = pAudioManager->LoadResource("./audio/menu.ogg");
+	m_audio["menu2"] = pAudioManager->LoadResource("./audio/menu.ogg");
+	m_audio["chime"] = pAudioManager->LoadResource("./audio/teamchime.ogg");
 
 	quitBool = false;
 }
@@ -46,6 +47,13 @@ int ShareManager::PlayAudio(char* song)
 int ShareManager::StopAudio(char* song)
 {
 	m_audio[song]->stop();
+
+	return 0;
+}
+
+int ShareManager::SetAudioLoop(char* song, bool loop)
+{
+	m_audio[song]->setLooping(loop);
 
 	return 0;
 }

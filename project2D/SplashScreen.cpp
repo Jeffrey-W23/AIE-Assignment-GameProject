@@ -3,16 +3,15 @@
 #include "ResourceManager.h"
 #include "Texture.h"
 #include "Input.h"
+#include "ShareManager.h"
 using namespace aie;
 
 SplashScreen::SplashScreen()
 {
 	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
-	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
 	m_logo = pTextureManager->LoadResource("./textures/teamlogo.png");
 	m_background = pTextureManager->LoadResource("./textures/bg-logo.png");
-	m_audio = pAudioManager->LoadResource("./audio/teamchime.ogg");
 	m_alpha = 0;
 	m_timer = 0;
 }
@@ -26,9 +25,11 @@ SplashScreen::~SplashScreen()
 
 void SplashScreen::onEnter(StateMachine* pMachine)
 {
-	m_audio->play();
 	m_alpha = 0;
 	m_timer = 0;
+
+	ShareManager* shareManager = ShareManager::Instance();
+	shareManager->PlayAudio("chime");
 }
 
 void SplashScreen::onUpdate(float deltaTime, StateMachine* pMachine)

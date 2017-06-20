@@ -65,6 +65,17 @@ void StateMachine::PopState()
 		m_CurrentStack.Top()->onEnter(this);
 }
 
+void StateMachine::PopAll()
+{
+	if (m_CurrentStack.Size() > 0)
+		m_CurrentStack.Top()->onExit(this);
+
+	while (m_CurrentStack.Size() > 0)
+	{
+		m_CurrentStack.Pop();
+	}
+}
+
 void StateMachine::AddState(int nStateIndex, State* pState)
 {
 	m_StateList.Insert(nStateIndex, pState);

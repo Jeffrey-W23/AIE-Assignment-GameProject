@@ -10,8 +10,8 @@ public:
 
 	void SetActive(bool m_bActive);
 	bool GetActive();
-	void Update(float deltaTime);
-	void Draw(Renderer2D* m_2dRenderer);
+	virtual void Update(float deltaTime);
+	virtual void Draw(Renderer2D* m_2dRenderer);
 
 private:
 	bool m_bActive;

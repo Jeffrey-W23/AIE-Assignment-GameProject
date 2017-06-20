@@ -2,7 +2,7 @@
 #include "Renderer2D.h"
 using namespace aie;
 
-class Entity;
+class Dirt;
 
 class ObjectPool
 {
@@ -10,12 +10,12 @@ public:
 	ObjectPool(int nMaxSize);
 	~ObjectPool();
 
-	Entity* Allocate();
-	void Deallocate(Entity* object);
+	Dirt* Allocate();
+	void Deallocate(Dirt* object);
 	void Update(float deltaTime);
 	void Draw(Renderer2D* m_2dRenderer);
 
 private:
-	Entity** m_pPool;
+	Dirt** m_pPool;
 	int m_nMaxSize;
 };

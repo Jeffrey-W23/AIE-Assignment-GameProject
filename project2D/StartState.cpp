@@ -2,6 +2,7 @@
 #include "StateMachine.h"
 #include "Input.h"
 #include "ResourceManager.h"
+#include "ShareManager.h"
 #include <crtdbg.h>
 
 StartState::StartState()
@@ -33,6 +34,11 @@ void StartState::onEnter(StateMachine* pMachine)
 	m_timer = 3;
 	m_flashText = 1;
 	m_alpha = 0;
+
+	ShareManager* shareManager = ShareManager::Instance();
+	shareManager->PlayAudio("menu");
+	shareManager->SetAudioLoop("menu", true);
+	shareManager->StopAudio("chime");
 }
 
 void StartState::onUpdate(float deltaTime, StateMachine* pMachine)

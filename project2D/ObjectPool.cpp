@@ -1,5 +1,5 @@
 #include "ObjectPool.h"
-#include "Entity.h"
+#include "Dirt.h"
 #include <crtdbg.h>
 
 ObjectPool::ObjectPool(int nMaxSize)
@@ -7,11 +7,11 @@ ObjectPool::ObjectPool(int nMaxSize)
 	m_nMaxSize = nMaxSize;
 
 	_ASSERT(m_pPool);
-	m_pPool = new Entity*[nMaxSize];
+	m_pPool = new Dirt*[nMaxSize];
 
 	for (int i = 0; i < nMaxSize; ++i)
 	{
-		m_pPool[i] = new Entity();
+		m_pPool[i] = new Dirt();
 	}
 }
 
@@ -25,7 +25,7 @@ ObjectPool::~ObjectPool()
 	delete[] m_pPool;
 }
 
-Entity* ObjectPool::Allocate()
+Dirt* ObjectPool::Allocate()
 {
 	for (int i = 0; i < m_nMaxSize; ++i)
 	{
@@ -39,17 +39,29 @@ Entity* ObjectPool::Allocate()
 	return nullptr;
 }
 
-void ObjectPool::Deallocate(Entity* object)
+void ObjectPool::Deallocate(Dirt* object)
 {
 	object->SetActive(false);
 }
 
 void ObjectPool::Update(float deltaTime)
 {
+	for (int i = 0; i < m_nMaxSize; ++i)
+	{
+		if (m_pPool[i]->GetActive())
+		{
 
+		}
+	}
 }
 
 void ObjectPool::Draw(Renderer2D* m_2dRenderer)
 {
+	for (int i = 0; i < m_nMaxSize; ++i)
+	{
+		if (m_pPool[i]->GetActive())
+		{
 
+		}
+	}
 }

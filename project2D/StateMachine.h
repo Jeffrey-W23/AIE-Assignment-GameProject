@@ -16,6 +16,7 @@ public:
 	void PushState(int nStateIndex);
 	void AddState(int nStateIndex, State* pState);
 	void PopState();
+	void PopAll();
 	void SetBackgroundUpdate(bool onoff);
 
 private:

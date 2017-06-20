@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "MenuState.h"
 #include "GameState.h"
+#include "Pause.h"
 #include "StartState.h"
 #include "LoadingState.h"
 #include "SplashScreen.h"
@@ -46,6 +47,7 @@ bool Application2D::startup()
 	m_StateMachine->AddState(2, new MenuState());
 	m_StateMachine->AddState(3, new LoadingState());
 	m_StateMachine->AddState(4, new GameState());
+	m_StateMachine->AddState(5, new Pause());
 	m_StateMachine->PushState(0);
 
 	m_cameraX = 0;
