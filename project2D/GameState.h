@@ -18,5 +18,9 @@ public:
 private:
 	ObjectPool* objectPool;
 	Texture* m_background;
+	Texture* m_map;
+	Texture* m_player;
+
+	float m_cameraX, m_cameraY;
 };
 

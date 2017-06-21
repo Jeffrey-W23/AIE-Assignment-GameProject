@@ -50,7 +50,7 @@ void ObjectPool::Update(float deltaTime)
 	{
 		if (m_pPool[i]->GetActive())
 		{
-
+			m_pPool[i]->Update(deltaTime);
 		}
 	}
 }
@@ -61,7 +61,7 @@ void ObjectPool::Draw(Renderer2D* m_2dRenderer)
 	{
 		if (m_pPool[i]->GetActive())
 		{
-
+			m_pPool[i]->Draw(m_2dRenderer);
 		}
 	}
 }

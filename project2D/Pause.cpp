@@ -17,7 +17,7 @@ Pause::~Pause()
 
 void Pause::onEnter(StateMachine* pMachine)
 {
-	m_selectorPos = 425;
+	m_selectorPos = 444;
 }
 
 void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
@@ -30,19 +30,19 @@ void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
 		pMachine->PopState();
 	}
 
-	if (input->wasKeyPressed(INPUT_KEY_W) && m_selectorPos < 425 || input->wasKeyPressed(INPUT_KEY_UP) && m_selectorPos < 425)
+	if (input->wasKeyPressed(INPUT_KEY_W) && m_selectorPos < 444 || input->wasKeyPressed(INPUT_KEY_UP) && m_selectorPos < 444)
 		m_selectorPos += 60;
 
-	if (input->wasKeyPressed(INPUT_KEY_S) && m_selectorPos > 365 || input->wasKeyPressed(INPUT_KEY_DOWN) && m_selectorPos > 365)
+	if (input->wasKeyPressed(INPUT_KEY_S) && m_selectorPos > 384 || input->wasKeyPressed(INPUT_KEY_DOWN) && m_selectorPos > 384)
 		m_selectorPos -= 60;
 
-	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 425 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 425)
+	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 444 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 444)
 	{
 		pMachine->SetBackgroundUpdate(false);
 		pMachine->PopState();
 	}
 
-	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 365 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 365)
+	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 384 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 384)
 	{
 		pMachine->SetBackgroundUpdate(false);
 		pMachine->PopAll();
@@ -63,7 +63,7 @@ void Pause::onDraw(Renderer2D* m_2dRenderer)
 	m_2dRenderer->drawText(m_font2, "MENU", 575, 365);
 
 	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, 1);
-	m_2dRenderer->drawBox(503, m_selectorPos, 28, 28);
+	m_2dRenderer->drawBox(490, m_selectorPos, 28, 28);
 }
 
 void Pause::onExit(StateMachine* pMachine)
