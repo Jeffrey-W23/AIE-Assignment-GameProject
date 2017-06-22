@@ -10,12 +10,16 @@ ShareManager::ShareManager()
 	m_audio["menu"] = pAudioManager->LoadResource("./audio/menu.ogg");
 	m_audio["menu2"] = pAudioManager->LoadResource("./audio/menu.ogg");
 	m_audio["chime"] = pAudioManager->LoadResource("./audio/teamchime.ogg");
+	m_audio["enter"] = pAudioManager->LoadResource("./audio/enter.ogg");
+	m_audio["select"] = pAudioManager->LoadResource("./audio/select.ogg");
+	m_audio["back"] = pAudioManager->LoadResource("./audio/back.ogg");
 
 	quitBool = false;
 }
 
 ShareManager::~ShareManager()
 {
+	//delete m_audio["menu"]; // Wont delete
 }
 
 ShareManager* ShareManager::Instance()
@@ -47,6 +51,16 @@ int ShareManager::PlayAudio(char* song)
 int ShareManager::StopAudio(char* song)
 {
 	m_audio[song]->stop();
+
+	return 0;
+}
+
+int ShareManager::StopAllAudio()
+{
+	for (int i = 0; i < m_audio.Size(); ++i)
+	{
+		m_audio[i]->stop();
+	}
 
 	return 0;
 }

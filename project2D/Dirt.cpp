@@ -3,8 +3,9 @@
 Dirt::Dirt()
 {
 	m_bActive = false;
-	m_x = 0;
-	m_y = 0;
+	m_x = 300;
+	m_y = 300;
+	m_rot = 0;
 }
 
 Dirt::~Dirt()
@@ -21,19 +22,20 @@ bool Dirt::GetActive()
 	return m_bActive;
 }
 
-void Dirt::SetPos(float x, float y)
-{
-		m_x = x;
-		m_y = y;
-}
-
 void Dirt::Update(float deltaTime)
 {
 	//timer for setting active back to false
+	m_rot += deltaTime;
+
+	if (m_rot > 10)
+	{
+		SetActive(false);
+		m_rot = 0;
+	}
 }
 
 void Dirt::Draw(Renderer2D* m_2dRenderer)
 {
 	m_2dRenderer->setRenderColour(0.220, 0.137, 0, 1);
-	m_2dRenderer->drawSprite(nullptr, m_x, m_y, 70, 70, 0, 0, 0, 0);
+	m_2dRenderer->drawSprite(nullptr, m_x, m_y, 124, 8, m_rot);
 }

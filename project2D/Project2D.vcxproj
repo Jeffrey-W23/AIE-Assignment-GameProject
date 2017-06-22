@@ -91,7 +91,6 @@
   <ItemGroup>
     <ClCompile Include="Application2D.cpp" />
     <ClCompile Include="Dirt.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="main.cpp" />
@@ -109,12 +108,7 @@
     <ClInclude Include="AssociativeArray.h" />
     <ClInclude Include="Dirt.h" />
     <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameState.h" />
-    <ClInclude Include="Graph.h" />
-    <ClInclude Include="GraphNode.h" />
-    <ClInclude Include="LinkedList.h" />
-    <ClInclude Include="ListNode.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="ObjectPool.h" />

@@ -49,8 +49,13 @@ void StartState::onUpdate(float deltaTime, StateMachine* pMachine)
 	// input example
 	Input* input = Input::getInstance();
 
+	ShareManager* shareManager = ShareManager::Instance();
+
 	if (input->wasKeyPressed(INPUT_KEY_ENTER) || input->wasKeyPressed(INPUT_KEY_SPACE))
+	{
+		shareManager->PlayAudio("enter");
 		pMachine->PushState(2);
+	}
 
 	m_timer += deltaTime;
 	

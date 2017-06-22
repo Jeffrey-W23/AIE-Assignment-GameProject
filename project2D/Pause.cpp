@@ -1,6 +1,7 @@
 #include "Pause.h"
 #include "Input.h"
 #include "font.h"
+#include "ShareManager.h"
 #include "StateMachine.h"
 
 Pause::Pause()
@@ -12,7 +13,8 @@ Pause::Pause()
 
 Pause::~Pause()
 {
-
+	delete m_font;
+	delete m_font2;
 }
 
 void Pause::onEnter(StateMachine* pMachine)
@@ -24,6 +26,8 @@ void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
 {
 	Input* input = Input::getInstance();
 
+	ShareManager* shareManager = ShareManager::Instance();
+
 	if (input->wasKeyPressed(INPUT_KEY_ESCAPE))
 	{
 		pMachine->SetBackgroundUpdate(false);
@@ -31,19 +35,27 @@ void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
 	}
 
 	if (input->wasKeyPressed(INPUT_KEY_W) && m_selectorPos < 444 || input->wasKeyPressed(INPUT_KEY_UP) && m_selectorPos < 444)
+	{
+		shareManager->PlayAudio("select");
 		m_selectorPos += 60;
+	}
 
 	if (input->wasKeyPressed(INPUT_KEY_S) && m_selectorPos > 384 || input->wasKeyPressed(INPUT_KEY_DOWN) && m_selectorPos > 384)
+	{
+		shareManager->PlayAudio("select");
 		m_selectorPos -= 60;
+	}
 
 	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 444 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 444)
 	{
+		shareManager->PlayAudio("enter");
 		pMachine->SetBackgroundUpdate(false);
 		pMachine->PopState();
 	}
 
 	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 384 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 384)
 	{
+		shareManager->PlayAudio("enter");
 		pMachine->SetBackgroundUpdate(false);
 		pMachine->PopAll();
 		pMachine->PushState(1);

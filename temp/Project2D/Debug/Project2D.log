@@ -1,8 +1,2 @@
-﻿  Dirt.cpp
-c:\users\s171043\documents\github\aie-assignment-gameproject\project2d\dirt.cpp(37): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-  Compiling...
-  ObjectPool.cpp
-  GameState.cpp
-  Generating Code...
-  Project2D.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.exe
+﻿  Project2D.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.exe
+  Project2D.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.pdb (Full PDB)

@@ -1,6 +1,10 @@
+//#include, using etc
 #pragma once
 #include "DynamicArray.h"
 
+//--------------------------------------------------------------------------------------
+// AssociativeArray Templated object.
+//--------------------------------------------------------------------------------------
 template <typename T>
 class AssociativeArray
 {

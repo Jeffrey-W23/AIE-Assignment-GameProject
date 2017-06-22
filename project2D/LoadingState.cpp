@@ -20,7 +20,7 @@ LoadingState::~LoadingState()
 
 void LoadingState::onEnter(StateMachine* pMachine)
 {
-	m_loadingBar = 382; // change to 0
+	m_loadingBar = 0;
 }
 
 void LoadingState::onUpdate(float deltaTime, StateMachine* pMachine)

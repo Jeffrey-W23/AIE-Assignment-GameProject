@@ -21,6 +21,5 @@ private:
 
 	Texture* m_logo;
 	Texture* m_background;
-	Audio* m_audio;
 };
 

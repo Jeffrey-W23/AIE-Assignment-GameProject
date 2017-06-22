@@ -18,7 +18,6 @@ SplashScreen::SplashScreen()
 
 SplashScreen::~SplashScreen()
 {
-	delete m_audio;
 	delete m_background;
 	delete m_logo;
 }

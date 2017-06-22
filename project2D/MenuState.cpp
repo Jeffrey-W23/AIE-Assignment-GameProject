@@ -47,20 +47,35 @@ void MenuState::onUpdate(float deltaTime, StateMachine* pMachine)
 	ShareManager* shareManager = ShareManager::Instance();
 
 	if (input->wasKeyPressed(INPUT_KEY_ESCAPE))
+	{
+		shareManager->PlayAudio("back");
 		pMachine->PopState();
+	}
 
 	if (input->wasKeyPressed(INPUT_KEY_W) && m_selectorPos < 440 || input->wasKeyPressed(INPUT_KEY_UP) && m_selectorPos < 440)
+	{
+		shareManager->PlayAudio("select");
 		m_selectorPos += 60;
+	}
 
 	if (input->wasKeyPressed(INPUT_KEY_S) && m_selectorPos > 380 || input->wasKeyPressed(INPUT_KEY_DOWN) && m_selectorPos > 380)
+	{
+		shareManager->PlayAudio("select");
 		m_selectorPos -= 60;
+	}
 
 	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 440 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 440)
+	{
+		shareManager->PlayAudio("enter");
 		pMachine->PushState(3);
+	}
 
 	// Hopw do I get this working
 	if (input->wasKeyPressed(INPUT_KEY_ENTER) && m_selectorPos == 380 || input->wasKeyPressed(INPUT_KEY_SPACE) && m_selectorPos == 380)
+	{
+		shareManager->StopAllAudio();
 		shareManager->Quit(true);
+	}
 }
 
 void MenuState::onDraw(Renderer2D* m_2dRenderer)
