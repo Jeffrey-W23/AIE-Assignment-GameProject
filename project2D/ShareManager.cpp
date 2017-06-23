@@ -1,8 +1,12 @@
+//#include, using etc
 #include "ShareManager.h"
 #include "ResourceManager.h"
 
 ShareManager* ShareManager::m_instance = nullptr;
 
+//--------------------------------------------------------------------------------------
+// Default Constructor.
+//--------------------------------------------------------------------------------------
 ShareManager::ShareManager()
 {
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
@@ -17,9 +21,11 @@ ShareManager::ShareManager()
 	quitBool = false;
 }
 
+//--------------------------------------------------------------------------------------
+// Default Destructor
+//--------------------------------------------------------------------------------------
 ShareManager::~ShareManager()
 {
-	//delete m_audio["menu"]; // Wont delete
 }
 
 ShareManager* ShareManager::Instance()

@@ -142,6 +142,7 @@ Renderer2D::~Renderer2D() {
 	glDeleteBuffers(1, &m_ibo);
 	glDeleteBuffers(1, &m_vao);
 	glDeleteProgram(m_shader);
+	delete m_nullTexture;
 }
 
 void Renderer2D::begin() {

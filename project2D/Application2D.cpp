@@ -35,8 +35,8 @@ Application2D::~Application2D()
 bool Application2D::startup() 
 {
 	// Create a new instance of the Renderer2D
-	_ASSERT(m_2dRenderer);
 	m_2dRenderer = new Renderer2D();
+	_ASSERT(m_2dRenderer);
 
 	// Create ResourceManagers for Audio and Texture
 	ResourceManager<Texture>::Create();
@@ -44,8 +44,8 @@ bool Application2D::startup()
 	ShareManager::create();
 
 	// Create a new instance of the StateMachine
-	_ASSERT(m_StateMachine);
 	m_StateMachine = new StateMachine();
+	_ASSERT(m_StateMachine);
 
 	// Create each of the games states.
 	m_StateMachine->AddState(0, new SplashScreen());
