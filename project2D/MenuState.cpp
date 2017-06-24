@@ -21,8 +21,8 @@ MenuState::MenuState()
 	m_background = pTextureManager->LoadResource("./textures/bg.png");
 
 	// Load new Font
-	_ASSERT(m_font);
 	m_font = new Font("./font/PressStart.ttf", 28);
+	_ASSERT(m_font);
 
 	// Initialize vars
 	m_logoPos = 0;
@@ -61,6 +61,8 @@ void MenuState::onEnter(StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void MenuState::onUpdate(float deltaTime, StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// upadte m_logoPos and m_alpha by deltatime
 	m_logoPos += deltaTime * 150;
 	m_alpha -= deltaTime * 0.94f;
@@ -119,6 +121,8 @@ void MenuState::onUpdate(float deltaTime, StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void MenuState::onDraw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Draw/Render the m_background
 	m_2dRenderer->drawSprite(m_background, 640, 90);
 
@@ -144,4 +148,5 @@ void MenuState::onDraw(Renderer2D* m_2dRenderer)
 //--------------------------------------------------------------------------------------
 void MenuState::onExit(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
 }

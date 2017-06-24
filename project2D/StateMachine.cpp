@@ -53,6 +53,8 @@ void StateMachine::Update(float deltaTime)
 //--------------------------------------------------------------------------------------
 void StateMachine::Draw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	_ASSERT(m_CurrentStack.Size() > 0);
 	if (m_CurrentStack.Size() <= 0)
 		return;

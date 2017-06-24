@@ -14,9 +14,9 @@ LoadingState::LoadingState()
 	ResourceManager<Audio>* pAudioManager = ResourceManager<Audio>::GetInstance();
 
 	// Load new Font
-	_ASSERT(m_font);
 	m_font = new Font("./font/PressStart.ttf", 28);
-	
+	_ASSERT(m_font);
+
 	// Initialize vars
 	m_loadingBar = 0;
 }
@@ -37,6 +37,8 @@ LoadingState::~LoadingState()
 //--------------------------------------------------------------------------------------
 void LoadingState::onEnter(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// set defaults on entering of state
 	m_loadingBar = 0;
 }
@@ -50,6 +52,8 @@ void LoadingState::onEnter(StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void LoadingState::onUpdate(float deltaTime, StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// update m_loadingBar by delta time while loading bar isnt finished 
 	if (m_loadingBar < 384)
 	{
@@ -71,6 +75,8 @@ void LoadingState::onUpdate(float deltaTime, StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void LoadingState::onDraw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Set the color and draw/ render the "LOADING..." text.
 	m_2dRenderer->setRenderColour(0.627f, 0.184f, 0, 1);
 	m_2dRenderer->drawText(m_font, "LOADING...", 437, 302);

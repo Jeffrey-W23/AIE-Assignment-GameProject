@@ -10,25 +10,50 @@ class AssociativeArray
 {
 private:
 	
+	//--------------------------------------------------------------------------------------
+	// A typedef struct of T data and char pointer name.
+	//--------------------------------------------------------------------------------------
 	typedef struct _Data
 	{
 		T data;
 		char* name;
 	} Data ;
+
+	//--------------------------------------------------------------------------------------
+	// A DynamicArray of Data stack.
+	//--------------------------------------------------------------------------------------
 	DynamicArray<Data> stack;
 
 public:
 
+	//--------------------------------------------------------------------------------------
+	// Clear: clear the array.
+	//--------------------------------------------------------------------------------------
 	void Clear()
 	{
 		stack.Clear();
 	}
 
+	//--------------------------------------------------------------------------------------
+	// Size: Returns the size of the array.
+	//
+	// Return:
+	//		int: returns an int of the size of the array.
+	//--------------------------------------------------------------------------------------
 	int Size()
 	{
 		return stack.Size();
 	}
 
+	//--------------------------------------------------------------------------------------
+	// IsItem: Check an item in the array.
+	//
+	// Param:
+	//		name: char pointer of the value to check
+	//
+	// Return:
+	//		bool: returns bool if name is valid or not
+	//--------------------------------------------------------------------------------------
 	bool IsItem(char* name)
 	{
 		for (int i = 0; i < Size(); ++i)
@@ -41,6 +66,16 @@ public:
 		return false;
 	}
 
+	//--------------------------------------------------------------------------------------
+	// AddItem: Add an item to the array.
+	//
+	// Param:
+	//		name: a char pointer for the name of the data
+	//		data: the data you want to add
+	//
+	// Return:
+	//		bool: returns bool if adding was successful
+	//--------------------------------------------------------------------------------------
 	bool AddItem(char* name, T data)
 	{
 		if (IsItem(name))
@@ -55,6 +90,15 @@ public:
 		return true;
 	}
 
+	//--------------------------------------------------------------------------------------
+	// Sub-script operator returning a reference
+	//
+	// Param:
+	//		name: the name of the data you want
+	//
+	// Return:
+	//		T: Returns a type T
+	//--------------------------------------------------------------------------------------
 	T& operator [] (char* name)
 	{
 		for (int i = 0; i < Size(); i++)
@@ -72,6 +116,15 @@ public:
 		return stack[idx].data;
 	}
 
+	//--------------------------------------------------------------------------------------
+	// GetItemName: get the name of an item in the array.
+	//
+	// Param:
+	//		index: An int index in the array.
+	//
+	// Return:
+	//		char*: Returns a char pointer for the name at the index
+	//--------------------------------------------------------------------------------------
 	char* GetItemName(int index)
 	{
 		if (index < 0)
@@ -90,6 +143,15 @@ public:
 		return "";
 	}
 
+	//--------------------------------------------------------------------------------------
+	// Sub-script operator returning a reference
+	//
+	// Param:
+	//		index: int index in the array.
+	//
+	// Return:
+	//		T: return value T
+	//--------------------------------------------------------------------------------------
 	T& operator [] (int index)
 	{
 		if (index < 0)

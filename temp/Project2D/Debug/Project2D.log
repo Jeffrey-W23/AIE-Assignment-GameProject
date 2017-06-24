@@ -1,5 +1,16 @@
-﻿  StateMachine.cpp
-  ObjectPool.cpp
-  Application2D.cpp
+﻿  Application2D.cpp
   Generating Code...
-  Project2D.vcxproj -> C:\Users\s171043\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.exe
+  Compiling...
+  main.cpp
+  StateMachine.cpp
+  StartState.cpp
+  SplashScreen.cpp
+  ShareManager.cpp
+  Pause.cpp
+c:\users\thomas wiltshire\documents\github\aie-assignment-gameproject\project2d\pause.cpp(114): warning C4305: 'argument': truncation from 'double' to 'float'
+  MenuState.cpp
+  LoadingState.cpp
+  GameState.cpp
+  Generating Code...
+  Project2D.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.exe
+  Project2D.vcxproj -> C:\Users\Thomas Wiltshire\Documents\GitHub\AIE-Assignment-GameProject\temp\Project2D\Debug\Project2D.pdb (Full PDB)

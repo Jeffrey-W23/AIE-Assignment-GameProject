@@ -41,6 +41,8 @@ SplashScreen::~SplashScreen()
 //--------------------------------------------------------------------------------------
 void SplashScreen::onEnter(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// set defaults on entering of state
 	m_alpha = 0;
 	m_timer = 0;
@@ -61,6 +63,8 @@ void SplashScreen::onEnter(StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void SplashScreen::onUpdate(float deltaTime, StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// upadte timer and alpha by deltatime
 	m_timer += deltaTime;
 	m_alpha += deltaTime * 0.1f;
@@ -87,6 +91,8 @@ void SplashScreen::onUpdate(float deltaTime, StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void SplashScreen::onDraw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Set the color
 	m_2dRenderer->setRenderColour(1, 1, 1, m_alpha);
 
@@ -105,6 +111,8 @@ void SplashScreen::onDraw(Renderer2D* m_2dRenderer)
 //--------------------------------------------------------------------------------------
 void SplashScreen::onExit(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// set timer to 0
 	m_timer = 0;
 }

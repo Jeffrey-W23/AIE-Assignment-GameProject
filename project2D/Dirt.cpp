@@ -1,5 +1,6 @@
 // #include, using, etc
 #include "Dirt.h"
+#include <crtdbg.h>
 
 //--------------------------------------------------------------------------------------
 // Default Constructor.
@@ -70,6 +71,8 @@ void Dirt::Update(float deltaTime)
 //--------------------------------------------------------------------------------------
 void Dirt::Draw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Set the color
 	m_2dRenderer->setRenderColour(0.220, 0.137, 0, 1);
 	

@@ -11,9 +11,11 @@ Pause::Pause()
 {
 	// Load new Font1
 	m_font = new Font("./font/PressStart.ttf", 45);
+	_ASSERT(m_font);
 
 	// Load new Font2
 	m_font2 = new Font("./font/PressStart.ttf", 32);
+	_ASSERT(m_font2);
 
 	// Initialize vars
 	m_selectorPos = 0;
@@ -36,6 +38,8 @@ Pause::~Pause()
 //--------------------------------------------------------------------------------------
 void Pause::onEnter(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// set defaults on entering of state
 	m_selectorPos = 444;
 }
@@ -49,6 +53,8 @@ void Pause::onEnter(StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// Get instance of Input
 	Input* input = Input::getInstance();
 
@@ -102,6 +108,8 @@ void Pause::onUpdate(float deltaTime, StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void Pause::onDraw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Set the color and draw/ render a black transparent square that takes up the whole pause screen
 	m_2dRenderer->setRenderColour(0, 0, 0, 0.8);
 	m_2dRenderer->drawSprite(nullptr, 0, 0, 1280, 720, 0, 0, 0);
@@ -128,5 +136,5 @@ void Pause::onDraw(Renderer2D* m_2dRenderer)
 //--------------------------------------------------------------------------------------
 void Pause::onExit(StateMachine* pMachine)
 {
-
+	_ASSERT(pMachine);
 }

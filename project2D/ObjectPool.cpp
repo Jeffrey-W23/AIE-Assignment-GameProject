@@ -61,6 +61,8 @@ Dirt* ObjectPool::Allocate()
 //--------------------------------------------------------------------------------------
 void ObjectPool::Deallocate(Dirt* object)
 {
+	_ASSERT(object);
+
 	object->SetActive(false);
 }
 
@@ -89,6 +91,8 @@ void ObjectPool::Update(float deltaTime)
 //--------------------------------------------------------------------------------------
 void ObjectPool::Draw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	for (int i = 0; i < m_nMaxSize; ++i)
 	{
 		if (m_pPool[i]->GetActive())

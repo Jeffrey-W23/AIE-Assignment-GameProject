@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "ResourceManager.h"
 #include "Audio.h"
+#include <crtdbg.h>
 
 //--------------------------------------------------------------------------------------
 // Default Constructor.
@@ -14,6 +15,7 @@ GameState::GameState()
 {
 	// load object pool with a limit of 10
 	objectPool = new ObjectPool(10);
+	_ASSERT(objectPool);
 	
 	// Get a new instance of the resource manager.
 	ResourceManager<Texture>* pTextureManager = ResourceManager<Texture>::GetInstance();
@@ -43,7 +45,9 @@ GameState::~GameState()
 //		pMachine: a pointer to StateMachine.
 //--------------------------------------------------------------------------------------
 void GameState::onEnter(StateMachine* pMachine)
-{}
+{
+	_ASSERT(pMachine);
+}
 
 //--------------------------------------------------------------------------------------
 // onUpdate: A virtual function from state to update objects.
@@ -54,6 +58,8 @@ void GameState::onEnter(StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void GameState::onUpdate(float deltaTime, StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
+
 	// update the object pool
 	objectPool->Update(deltaTime);
 
@@ -82,6 +88,8 @@ void GameState::onUpdate(float deltaTime, StateMachine* pMachine)
 //--------------------------------------------------------------------------------------
 void GameState::onDraw(Renderer2D* m_2dRenderer)
 {
+	_ASSERT(m_2dRenderer);
+
 	// Draw/render the background
 	m_2dRenderer->drawSprite(m_background, 640, 90);
 
@@ -97,4 +105,5 @@ void GameState::onDraw(Renderer2D* m_2dRenderer)
 //--------------------------------------------------------------------------------------
 void GameState::onExit(StateMachine* pMachine)
 {
+	_ASSERT(pMachine);
 }
